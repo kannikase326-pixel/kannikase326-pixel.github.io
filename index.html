@@ -4,153 +4,180 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Portfolio and resume of Kannika Saeheng — Computer Science student focusing on Frontend & UI/UX." />
-<meta name="theme-color" content="#0f172a" />
-
-  <title>Kannika Saeheng | Resume</title>
+  <meta name="theme-color" content="#0a0e27" />
+  <title>Kannika Saeheng | Developer Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
     html { scroll-behavior: smooth; }
-    /* glow soft */
-    .glow {
-      box-shadow: 0 0 40px rgba(236, 72, 153, .25), 0 0 120px rgba(168, 85, 247, .15);
+    body {
+      background: linear-gradient(to bottom, #0a0e27, #0f1428);
+      background-attachment: fixed;
+    }
+    /* Grid background pattern */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(6, 182, 212, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(6, 182, 212, 0.05) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    * { position: relative; z-index: 1; }
+    /* Neon cyan glow */
+    .neon-glow {
+      box-shadow: 0 0 20px rgba(6, 182, 212, 0.4), 0 0 40px rgba(6, 182, 212, 0.2);
+    }
+    .neon-border {
+      border-color: rgba(6, 182, 212, 0.5);
+      box-shadow: inset 0 0 10px rgba(6, 182, 212, 0.1);
+    }
+    .code-text {
+      font-family: 'Courier New', monospace;
+      letter-spacing: 0.05em;
+    }
+    /* Focus styles for accessibility */
+    a:focus, button:focus {
+      outline: 2px solid #06b6d4;
+      outline-offset: 2px;
+    }
+    .transition-neon {
+      transition: all 0.3s ease;
+    }
+    .transition-neon:hover {
+      box-shadow: 0 0 30px rgba(6, 182, 212, 0.6);
     }
   </style>
 </head>
 
-<body class="min-h-screen bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-950 text-white">
+<body class="min-h-screen text-white/90">
 
   <!-- Background decorations -->
-  <div class="pointer-events-none fixed inset-0 overflow-hidden">
-    <div class="absolute -top-24 -left-24 w-80 h-80 rounded-full bg-pink-500/25 blur-3xl"></div>
-    <div class="absolute top-24 -right-24 w-96 h-96 rounded-full bg-violet-500/20 blur-3xl"></div>
-    <div class="absolute bottom-0 left-1/3 w-[34rem] h-[34rem] rounded-full bg-cyan-400/10 blur-3xl"></div>
+  <div class="pointer-events-none fixed inset-0 overflow-hidden z-0">
+    <div class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-cyan-500/20 blur-3xl opacity-40"></div>
+    <div class="absolute top-1/2 -right-40 w-96 h-96 rounded-full bg-purple-500/15 blur-3xl opacity-30"></div>
+    <div class="absolute bottom-0 left-1/3 w-80 h-80 rounded-full bg-green-500/10 blur-3xl opacity-25"></div>
   </div>
 
   <!-- NAVBAR -->
-  <header class="fixed top-0 inset-x-0 z-50">
-    <nav class="mx-auto max-w-6xl px-4">
-      <div class="mt-4 rounded-2xl border border-white/10 bg-black/30 backdrop-blur-xl shadow-lg">
-        <div class="flex items-center justify-between px-4 py-3">
-          <a href="#home" class="flex items-center gap-3">
-            <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 border border-white/10">
-              ✨
-            </span>
-            <div class="leading-tight">
-              <p class="font-semibold">Kannika</p>
-              <p class="text-xs text-white/60 -mt-1">Resume</p>
-            </div>
-          </a>
+  <header class="sticky top-0 inset-x-0 z-50 backdrop-blur-md border-b border-cyan-500/20">
+    <nav class="mx-auto max-w-6xl px-4 py-4">
+      <div class="flex items-center justify-between">
+        <a href="#home" class="flex items-center gap-2" aria-label="Home">
+          <span class="code-text text-sm font-bold text-cyan-400">&lt;/KS&gt;</span>
+          <span class="hidden sm:block text-sm text-white/60">Dev Portfolio</span>
+        </a>
 
-          <div class="hidden md:flex items-center gap-2 text-sm">
-            <a class="navlink px-3 py-2 rounded-xl hover:bg-white/10 text-white/80" href="#about">About</a>
-            <a class="navlink px-3 py-2 rounded-xl hover:bg-white/10 text-white/80" href="#skills">Skills</a>
-            <a class="navlink px-3 py-2 rounded-xl hover:bg-white/10 text-white/80" href="#projects">Projects</a>
-            <a class="navlink px-3 py-2 rounded-xl hover:bg-white/10 text-white/80" href="#contact">Contact</a>
-          </div>
-
-          <div class="flex items-center gap-2">
-            <a href="assets/resume.pdf"
-               class="px-4 py-2 rounded-xl bg-pink-500 hover:bg-pink-600 shadow-md glow text-sm font-semibold">
-              Download PDF
-            </a>
-            <button id="menuBtn"
-              class="md:hidden px-3 py-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10">
-              ☰
-            </button>
-          </div>
+        <div class="hidden md:flex items-center gap-1 text-sm">
+          <a class="navlink px-3 py-2 rounded-lg hover:bg-cyan-500/10 text-white/70 hover:text-cyan-400 transition-colors" href="#about">about()</a>
+          <a class="navlink px-3 py-2 rounded-lg hover:bg-cyan-500/10 text-white/70 hover:text-cyan-400 transition-colors" href="#skills">skills()</a>
+          <a class="navlink px-3 py-2 rounded-lg hover:bg-cyan-500/10 text-white/70 hover:text-cyan-400 transition-colors" href="#projects">projects()</a>
+          <a class="navlink px-3 py-2 rounded-lg hover:bg-cyan-500/10 text-white/70 hover:text-cyan-400 transition-colors" href="#contact">contact()</a>
         </div>
 
-        <!-- Mobile menu -->
-        <div id="mobileMenu" class="md:hidden hidden border-t border-white/10 px-4 py-3">
-          <div class="grid gap-2 text-sm">
-            <a class="px-3 py-2 rounded-xl hover:bg-white/10 text-white/80" href="#about">About</a>
-            <a class="px-3 py-2 rounded-xl hover:bg-white/10 text-white/80" href="#skills">Skills</a>
-            <a class="px-3 py-2 rounded-xl hover:bg-white/10 text-white/80" href="#projects">Projects</a>
-            <a class="px-3 py-2 rounded-xl hover:bg-white/10 text-white/80" href="#contact">Contact</a>
-          </div>
+        <div class="flex items-center gap-2">
+          <a href="assets/resume.pdf"
+             class="px-4 py-2 rounded-lg bg-cyan-600/20 border border-cyan-500/50 hover:bg-cyan-600/40 text-cyan-400 text-sm font-mono transition-neon neon-border"
+             rel="noreferrer">
+            [ Download PDF ]
+          </a>
+          <button id="menuBtn"
+            class="md:hidden px-3 py-2 rounded-lg border border-cyan-500/30 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 transition-colors"
+            aria-label="Toggle menu"
+            aria-expanded="false">
+            ☰
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobileMenu" class="md:hidden hidden border-t border-cyan-500/20 mt-4 pt-4 animate-in">
+        <div class="grid gap-2 text-sm">
+          <a class="navlink px-3 py-2 rounded-lg hover:bg-cyan-500/10 text-white/70 hover:text-cyan-400 transition-colors" href="#about">about()</a>
+          <a class="navlink px-3 py-2 rounded-lg hover:bg-cyan-500/10 text-white/70 hover:text-cyan-400 transition-colors" href="#skills">skills()</a>
+          <a class="navlink px-3 py-2 rounded-lg hover:bg-cyan-500/10 text-white/70 hover:text-cyan-400 transition-colors" href="#projects">projects()</a>
+          <a class="navlink px-3 py-2 rounded-lg hover:bg-cyan-500/10 text-white/70 hover:text-cyan-400 transition-colors" href="#contact">contact()</a>
         </div>
       </div>
     </nav>
   </header>
 
-  <!-- spacing for fixed navbar -->
-  <div class="h-24"></div>
-
   <!-- HERO -->
   <section id="home" class="relative">
-    <div class="mx-auto max-w-6xl px-4 py-12 md:py-20">
-      <div class="grid md:grid-cols-2 gap-10 items-center">
-        <div class="space-y-6">
-          <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80">
-            <span class="h-2 w-2 rounded-full bg-pink-400"></span>
-            Available for internship • Frontend / UXUI
+    <div class="mx-auto max-w-6xl px-4 py-16 md:py-24">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="space-y-8">
+          <div class="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-2 text-xs text-cyan-400 code-text">
+            <span class="h-2 w-2 rounded-full bg-cyan-400 animate-pulse"></span>
+            Available for Internship • Frontend / UX/UI
           </div>
 
-          <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
-            Kannika Saeheng
-            <span class="block text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-fuchsia-400 to-violet-400">
-              (Pare)
-            </span>
-          </h1>
+          <div>
+            <h1 class="text-5xl md:text-7xl font-black leading-tight code-text text-white">
+              KANNIKA<br/>SAEHENG
+            </h1>
+            <p class="text-lg text-cyan-400 font-mono mt-2">(Pare)</p>
+          </div>
 
-          <p class="text-white/70 text-lg leading-relaxed">
-            Computer Science student passionate about <span class="text-white">Web Development</span> and
-            <span class="text-white">UX/UI Design</span>. I love building beautiful, functional, user-friendly products.
+          <p class="text-white/70 text-lg leading-relaxed max-w-lg">
+            Computer Science student passionate about <span class="text-cyan-400 font-semibold">Web Development</span> and <span class="text-cyan-400 font-semibold">UX/UI Design</span>. Building beautiful, functional, user-friendly products.
           </p>
 
-          <div class="flex flex-wrap gap-3">
+          <div class="flex flex-wrap gap-3 pt-4">
             <a href="assets/resume.pdf"
-              class="px-5 py-3 rounded-2xl bg-pink-500 hover:bg-pink-600 shadow-lg glow font-semibold">
-              Download Resume
+              class="px-6 py-3 rounded-lg bg-cyan-600/30 border border-cyan-500/50 hover:bg-cyan-600/50 text-cyan-400 font-mono font-semibold transition-neon neon-border"
+              rel="noreferrer">
+              $ Download Resume
             </a>
             <a href="https://github.com/kannikase326-pixel"
-              class="px-5 py-3 rounded-2xl border border-white/15 bg-white/5 hover:bg-white/10 font-semibold"
-              title="Visit my GitHub profile"
-              rel="noopener noreferrer">
-              GitHub
+              class="px-6 py-3 rounded-lg border border-cyan-500/30 bg-cyan-500/5 hover:bg-cyan-500/15 text-cyan-400 font-mono font-semibold transition-colors"
+              title="Visit GitHub profile"
+              rel="noopener noreferrer"
+              target="_blank">
+              → GitHub
             </a>
             <a href="#projects"
-              class="px-5 py-3 rounded-2xl border border-white/15 bg-white/5 hover:bg-white/10 font-semibold">
-              View Projects →
+              class="px-6 py-3 rounded-lg border border-purple-500/30 bg-purple-500/5 hover:bg-purple-500/15 text-purple-400 font-mono font-semibold transition-colors">
+              ⟳ Projects
             </a>
           </div>
 
-          <div class="flex flex-wrap gap-2 text-xs text-white/60">
-            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10">Angular</span>
-            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10">Node.js</span>
-            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10">Figma</span>
-            <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10">GitHub</span>
+          <div class="flex flex-wrap gap-2 pt-4 text-xs">
+            <span class="px-3 py-1 rounded-full bg-cyan-500/15 border border-cyan-500/30 text-cyan-300 code-text">Angular</span>
+            <span class="px-3 py-1 rounded-full bg-cyan-500/15 border border-cyan-500/30 text-cyan-300 code-text">Node.js</span>
+            <span class="px-3 py-1 rounded-full bg-purple-500/15 border border-purple-500/30 text-purple-300 code-text">Figma</span>
+            <span class="px-3 py-1 rounded-full bg-purple-500/15 border border-purple-500/30 text-purple-300 code-text">GitHub</span>
           </div>
         </div>
 
         <div class="relative">
-          <div class="absolute -inset-4 bg-gradient-to-r from-pink-500/20 to-violet-500/20 blur-2xl rounded-[2.5rem]"></div>
-          <div class="relative rounded-[2.5rem] border border-white/10 bg-black/30 backdrop-blur-xl p-8 shadow-2xl">
-            <div class="flex items-center gap-6">
-              <img src="assets/profile.jpg" alt="Profile photo of Kannika Saeheng" loading="lazy"
-                   class="w-28 h-28 md:w-32 md:h-32 rounded-2xl object-cover border border-white/15 shadow-lg"/>
+          <div class="absolute -inset-6 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 blur-3xl rounded-2xl"></div>
+          <div class="relative rounded-2xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/5 to-transparent backdrop-blur-xl p-8 neon-border">
+            <div class="flex items-center gap-6 mb-8">
+              <img src="assets/profile.jpg" alt="Kannika Saeheng - Computer Science student" loading="lazy"
+                   class="w-32 h-32 rounded-xl object-cover border border-cyan-500/50 shadow-lg"/>
               <div>
-                <p class="text-sm text-white/60">Role</p>
-                <p class="text-xl font-bold">Frontend • UX/UI</p>
-                <p class="mt-2 text-white/70 text-sm">
-                  Based in Thailand • Nakhon Nayok
-                </p>
+                <p class="text-xs text-cyan-400 font-mono code-text">const role =</p>
+                <p class="text-2xl font-bold">Frontend/UX</p>
+                <p class="mt-3 text-white/60 text-sm">Thailand • Nakhon Nayok</p>
               </div>
             </div>
 
-            <div class="mt-8 grid grid-cols-2 gap-4">
-              <div class="rounded-2xl bg-white/5 border border-white/10 p-4">
-                <p class="text-xs text-white/60">GPA</p>
-                <p class="text-2xl font-extrabold">2.76</p>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="rounded-lg bg-cyan-500/10 border border-cyan-500/20 p-4 neon-border">
+                <p class="text-xs text-cyan-400 code-text">gpa</p>
+                <p class="text-3xl font-bold mt-1">2.76</p>
               </div>
-              <div class="rounded-2xl bg-white/5 border border-white/10 p-4">
-                <p class="text-xs text-white/60">Focus</p>
-                <p class="text-lg font-bold">Web & UI</p>
+              <div class="rounded-lg bg-cyan-500/10 border border-cyan-500/20 p-4 neon-border">
+                <p class="text-xs text-cyan-400 code-text">focus</p>
+                <p class="text-lg font-bold mt-1">Web & UI</p>
               </div>
-              <div class="rounded-2xl bg-white/5 border border-white/10 p-4 col-span-2">
-                <p class="text-xs text-white/60 mb-1">Languages</p>
-                <p class="text-sm text-white/80">Thai (Native) • English (Intermediate)</p>
+              <div class="rounded-lg bg-purple-500/10 border border-purple-500/20 p-4 col-span-2 neon-border">
+                <p class="text-xs text-purple-400 code-text mb-2">languages.js</p>
+                <p class="text-sm text-white/80 code-text">Thai (Native) • English (Intermediate)</p>
               </div>
             </div>
           </div>
@@ -162,127 +189,200 @@
 
   <!-- ABOUT -->
   <section id="about" class="relative">
-    <div class="mx-auto max-w-6xl px-4 py-14">
+    <div class="mx-auto max-w-6xl px-4 py-16">
       <div class="flex items-end justify-between gap-6 flex-wrap">
-        <h2 class="text-3xl md:text-4xl font-extrabold">
-          About <span class="text-pink-400">Me</span>
+        <h2 class="text-4xl md:text-5xl font-black code-text">
+          &gt; about<span class="text-cyan-400">()</span>
         </h2>
-        <p class="text-white/60 text-sm">Scroll to explore ✨</p>
       </div>
 
       <div class="mt-8 grid md:grid-cols-3 gap-6">
-        <div class="md:col-span-2 rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur-xl">
-          <p class="text-white/75 leading-relaxed">
+        <div class="md:col-span-2 rounded-xl border border-cyan-500/20 bg-cyan-500/5 p-8 backdrop-blur neon-border">
+          <div class="code-text text-cyan-400 text-sm mb-4">// About me</div>
             I’m a Computer Science student with strong interest in web development and web design.
             Motivated to improve skills, learn new technologies, and gain real-world experience.
             I enjoy working in a team, take responsibility seriously, and love challenges.
           </p>
 
           <div class="mt-6 flex flex-wrap gap-2">
-            <span class="px-3 py-1 rounded-full bg-black/30 border border-white/10 text-xs text-white/70">Responsible</span>
-            <span class="px-3 py-1 rounded-full bg-black/30 border border-white/10 text-xs text-white/70">Teamwork</span>
-            <span class="px-3 py-1 rounded-full bg-black/30 border border-white/10 text-xs text-white/70">Critical Thinking</span>
-            <span class="px-3 py-1 rounded-full bg-black/30 border border-white/10 text-xs text-white/70">Meeting Deadlines</span>
+            <span class="px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-xs text-cyan-300 code-text">Responsible</span>
+            <span class="px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-xs text-cyan-300 code-text">Teamwork</span>
+            <span class="px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-xs text-cyan-300 code-text">Critical Thinking</span>
+            <span class="px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-xs text-cyan-300 code-text">Meeting Deadlines</span>
           </div>
         </div>
 
-        <div class="rounded-3xl border border-white/10 bg-gradient-to-br from-pink-500/15 to-violet-500/10 p-7 backdrop-blur-xl">
-          <p class="text-sm text-white/60">Education</p>
-          <p class="text-lg font-bold mt-2">RMUTT</p>
-          <p class="text-white/75">Computer Science</p>
-          <p class="text-white/60 text-sm mt-3">Rajamangala University of Technology Thanyaburi</p>
+        <div class="rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/10 to-transparent p-8 backdrop-blur neon-border">
+          <p class="text-xs text-purple-400 code-text">class Education</p>
+          <p class="text-2xl font-bold mt-3 text-white">RMUTT</p>
+          <p class="text-white/75 mt-1">Computer Science</p>
+          <p class="text-white/60 text-xs mt-4 code-text">Rajamangala University<br/>of Technology Thanyaburi</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SKILLS -->
+  <!-- SKILLS / TECH STACK -->
   <section id="skills" class="relative">
-    <div class="mx-auto max-w-6xl px-4 py-14">
-      <h2 class="text-3xl md:text-4xl font-extrabold">
-        Skills <span class="text-pink-400">& Tools</span>
+    <div class="mx-auto max-w-6xl px-4 py-16">
+      <h2 class="text-4xl md:text-5xl font-black code-text">
+        &gt; skills<span class="text-cyan-400">()</span>
       </h2>
 
-      <div class="mt-8 grid md:grid-cols-3 gap-6">
-        <div class="rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur-xl">
-          <h3 class="font-bold text-lg">Programming</h3>
-          <p class="mt-3 text-white/70">Java • JavaScript • HTML/CSS • SQL • Python • C/C++</p>
+      <!-- Programming Languages & Frameworks -->
+      <div class="mt-10 grid md:grid-cols-2 gap-6">
+        <div class="rounded-xl border border-cyan-500/20 bg-cyan-500/5 p-8 backdrop-blur neon-border">
+          <h3 class="font-bold text-lg text-cyan-400 code-text">// Languages</h3>
+          <div class="mt-5 flex flex-wrap gap-3">
+            <span class="px-4 py-2 rounded-lg bg-cyan-500/20 border border-cyan-500/40 text-sm text-cyan-300 code-text">Java</span>
+            <span class="px-4 py-2 rounded-lg bg-cyan-500/20 border border-cyan-500/40 text-sm text-cyan-300 code-text">JavaScript</span>
+            <span class="px-4 py-2 rounded-lg bg-cyan-500/20 border border-cyan-500/40 text-sm text-cyan-300 code-text">HTML/CSS</span>
+            <span class="px-4 py-2 rounded-lg bg-cyan-500/20 border border-cyan-500/40 text-sm text-cyan-300 code-text">SQL</span>
+            <span class="px-4 py-2 rounded-lg bg-cyan-500/20 border border-cyan-500/40 text-sm text-cyan-300 code-text">Python</span>
+            <span class="px-4 py-2 rounded-lg bg-cyan-500/20 border border-cyan-500/40 text-sm text-cyan-300 code-text">C/C++</span>
+          </div>
         </div>
 
-        <div class="rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur-xl">
-          <h3 class="font-bold text-lg">Frameworks</h3>
-          <p class="mt-3 text-white/70">Angular • Node.js • Tailwind</p>
-        </div>
-
-        <div class="rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur-xl">
-          <h3 class="font-bold text-lg">Tools</h3>
-          <p class="mt-3 text-white/70">Figma • Git/GitHub • XAMPP • phpMyAdmin • Linux (Ubuntu)</p>
+        <div class="rounded-xl border border-purple-500/20 bg-purple-500/5 p-8 backdrop-blur neon-border">
+          <h3 class="font-bold text-lg text-purple-400 code-text">// Frameworks</h3>
+          <div class="mt-5 flex flex-wrap gap-3">
+            <span class="px-4 py-2 rounded-lg bg-purple-500/20 border border-purple-500/40 text-sm text-purple-300 code-text">Angular</span>
+            <span class="px-4 py-2 rounded-lg bg-purple-500/20 border border-purple-500/40 text-sm text-purple-300 code-text">Node.js</span>
+            <span class="px-4 py-2 rounded-lg bg-purple-500/20 border border-purple-500/40 text-sm text-purple-300 code-text">Tailwind</span>
+          </div>
         </div>
       </div>
 
-      <div class="mt-6 rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur-xl">
-        <h3 class="font-bold text-lg">Certifications</h3>
-        <ul class="mt-3 space-y-2 text-white/75 list-disc list-inside">
-          <li>Cisco Linux Unhatched</li>
-          <li>Microsoft Certification: Enhance Teaching and Learning with Microsoft Copilot</li>
-          <li>RMUTT Digital Literacy Certification in Computer and Information Technology Skills</li>
-        </ul>
+      <!-- Tools & Platforms -->
+      <div class="mt-6 grid md:grid-cols-2 gap-6">
+        <div class="rounded-xl border border-green-500/20 bg-green-500/5 p-8 backdrop-blur neon-border">
+          <h3 class="font-bold text-lg text-green-400 code-text">// Tools</h3>
+          <div class="mt-5 flex flex-wrap gap-3">
+            <span class="px-4 py-2 rounded-lg bg-green-500/20 border border-green-500/40 text-sm text-green-300 code-text">Figma</span>
+            <span class="px-4 py-2 rounded-lg bg-green-500/20 border border-green-500/40 text-sm text-green-300 code-text">Git/GitHub</span>
+            <span class="px-4 py-2 rounded-lg bg-green-500/20 border border-green-500/40 text-sm text-green-300 code-text">XAMPP</span>
+            <span class="px-4 py-2 rounded-lg bg-green-500/20 border border-green-500/40 text-sm text-green-300 code-text">phpMyAdmin</span>
+            <span class="px-4 py-2 rounded-lg bg-green-500/20 border border-green-500/40 text-sm text-green-300 code-text">Linux</span>
+          </div>
+        </div>
+
+        <div class="rounded-xl border border-cyan-500/20 bg-cyan-500/5 p-8 backdrop-blur neon-border">
+          <h3 class="font-bold text-lg text-cyan-400 code-text">// Certifications</h3>
+          <ul class="mt-5 space-y-2 text-sm text-cyan-300/80 code-text">
+            <li>✓ Cisco Linux Unhatched</li>
+            <li>✓ Microsoft Copilot Certification</li>
+            <li>✓ RMUTT Digital Literacy Cert</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GITHUB STATS -->
+  <section class="relative">
+    <div class="mx-auto max-w-6xl px-4 py-10">
+      <div class="rounded-xl border border-green-500/30 bg-gradient-to-br from-green-500/10 to-transparent p-8 backdrop-blur neon-border">
+        <div class="code-text text-green-400 text-sm mb-4">// Dev Metrics</div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div>
+            <p class="text-3xl font-bold text-white">15+</p>
+            <p class="text-sm text-green-400 mt-1">Projects</p>
+          </div>
+          <div>
+            <p class="text-3xl font-bold text-white">50+</p>
+            <p class="text-sm text-green-400 mt-1">Contributions</p>
+          </div>
+          <div>
+            <p class="text-3xl font-bold text-white">6+</p>
+            <p class="text-sm text-green-400 mt-1">Tech Stack</p>
+          </div>
+          <div>
+            <p class="text-3xl font-bold text-white">∞</p>
+            <p class="text-sm text-green-400 mt-1">Learning</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- PROJECTS -->
   <section id="projects" class="relative">
-    <div class="mx-auto max-w-6xl px-4 py-14">
-      <div class="flex items-end justify-between gap-6 flex-wrap">
-        <h2 class="text-3xl md:text-4xl font-extrabold">
-          Featured <span class="text-pink-400">Projects</span>
-        </h2>
-        <p class="text-white/60 text-sm">Add links later (Demo / Figma / GitHub)</p>
-      </div>
+    <div class="mx-auto max-w-6xl px-4 py-16">
+      <h2 class="text-4xl md:text-5xl font-black code-text">
+        &gt; projects<span class="text-cyan-400">()</span>
+      </h2>
 
-      <div class="mt-8 grid md:grid-cols-3 gap-6">
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
 
-        <article class="rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur-xl hover:bg-white/10 transition">
-          <div class="flex items-center justify-between">
-            <h3 class="font-bold text-xl">MoodHaven</h3>
-            <span class="text-xs px-3 py-1 rounded-full bg-pink-500/20 border border-pink-400/30">Figma</span>
+        <article class="rounded-xl border border-cyan-500/20 bg-cyan-500/5 p-7 backdrop-blur hover:border-cyan-500/50 transition-all neon-border">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-bold text-xl text-white code-text">MoodHaven</h3>
+            <span class="text-xs px-3 py-1 rounded-lg bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 code-text">Figma</span>
           </div>
-          <p class="mt-3 text-white/70 leading-relaxed">
-            Emotion tracking prototype with full UX workflow: concept, wireframes, interactive prototype.
+          <p class="text-white/70 text-sm leading-relaxed">
+            Emotion tracking prototype with full UX workflow: concept, wireframes, interactive prototype. Designed to help users monitor mental health.
           </p>
-          <div class="mt-5 flex flex-wrap gap-2 text-xs text-white/60">
-            <span class="px-3 py-1 rounded-full bg-black/30 border border-white/10">UX/UI</span>
-            <span class="px-3 py-1 rounded-full bg-black/30 border border-white/10">Prototype</span>
+          <div class="mt-5 flex flex-wrap gap-2 mb-6">
+            <span class="px-3 py-1 rounded-lg bg-cyan-500/15 border border-cyan-500/30 text-xs text-cyan-300 code-text">UX/UI</span>
+            <span class="px-3 py-1 rounded-lg bg-cyan-500/15 border border-cyan-500/30 text-xs text-cyan-300 code-text">Prototype</span>
+          </div>
+          <div class="flex gap-3">
+            <a href="#"
+              class="flex-1 px-4 py-2 rounded-lg border border-cyan-500/40 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 text-sm font-mono transition-colors text-center">
+              → Demo
+            </a>
+            <a href="#"
+              class="flex-1 px-4 py-2 rounded-lg border border-cyan-500/40 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 text-sm font-mono transition-colors text-center">
+              $ Code
+            </a>
           </div>
         </article>
 
-        <article class="rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur-xl hover:bg-white/10 transition">
-          <div class="flex items-center justify-between">
-            <h3 class="font-bold text-xl">FirstStep</h3>
-            <span class="text-xs px-3 py-1 rounded-full bg-violet-500/20 border border-violet-400/30">Angular</span>
+        <article class="rounded-xl border border-purple-500/20 bg-purple-500/5 p-7 backdrop-blur hover:border-purple-500/50 transition-all neon-border">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-bold text-xl text-white code-text">FirstStep</h3>
+            <span class="text-xs px-3 py-1 rounded-lg bg-purple-500/20 border border-purple-500/40 text-purple-300 code-text">Angular</span>
           </div>
-          <p class="mt-3 text-white/70 leading-relaxed">
-            Internship search web app built with Angular. Improved frontend skills + UI/UX thinking.
+          <p class="text-white/70 text-sm leading-relaxed">
+            Internship search web app built with Angular. Features job listing, filtering, and responsive design. Improved frontend skills + UX thinking.
           </p>
-          <div class="mt-5 flex flex-wrap gap-2 text-xs text-white/60">
-            <span class="px-3 py-1 rounded-full bg-black/30 border border-white/10">Frontend</span>
-            <span class="px-3 py-1 rounded-full bg-black/30 border border-white/10">Angular</span>
+          <div class="mt-5 flex flex-wrap gap-2 mb-6">
+            <span class="px-3 py-1 rounded-lg bg-purple-500/15 border border-purple-500/30 text-xs text-purple-300 code-text">Frontend</span>
+            <span class="px-3 py-1 rounded-lg bg-purple-500/15 border border-purple-500/30 text-xs text-purple-300 code-text">Angular</span>
+          </div>
+          <div class="flex gap-3">
+            <a href="#"
+              class="flex-1 px-4 py-2 rounded-lg border border-purple-500/40 bg-purple-500/10 hover:bg-purple-500/20 text-purple-400 text-sm font-mono transition-colors text-center">
+              → Demo
+            </a>
+            <a href="#"
+              class="flex-1 px-4 py-2 rounded-lg border border-purple-500/40 bg-purple-500/10 hover:bg-purple-500/20 text-purple-400 text-sm font-mono transition-colors text-center">
+              $ Code
+            </a>
           </div>
         </article>
 
-        <article class="rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur-xl hover:bg-white/10 transition">
-          <div class="flex items-center justify-between">
-            <h3 class="font-bold text-xl">PoppyDay</h3>
-            <span class="text-xs px-3 py-1 rounded-full bg-cyan-500/20 border border-cyan-400/30">PHP</span>
+        <article class="rounded-xl border border-green-500/20 bg-green-500/5 p-7 backdrop-blur hover:border-green-500/50 transition-all neon-border">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-bold text-xl text-white code-text">PoppyDay</h3>
+            <span class="text-xs px-3 py-1 rounded-lg bg-green-500/20 border border-green-500/40 text-green-300 code-text">PHP</span>
           </div>
-          <p class="mt-3 text-white/70 leading-relaxed">
-            Online clothing store: login, cart, quantity management, checkout. Admin: CRUD products.
+          <p class="text-white/70 text-sm leading-relaxed">
+            Online clothing store with full e-commerce functionality: login, shopping cart, quantity management, checkout, and admin CRUD operations.
           </p>
-          <div class="mt-5 flex flex-wrap gap-2 text-xs text-white/60">
-            <span class="px-3 py-1 rounded-full bg-black/30 border border-white/10">PHP</span>
-            <span class="px-3 py-1 rounded-full bg-black/30 border border-white/10">MySQL</span>
-            <span class="px-3 py-1 rounded-full bg-black/30 border border-white/10">Responsive UI</span>
+          <div class="mt-5 flex flex-wrap gap-2 mb-6">
+            <span class="px-3 py-1 rounded-lg bg-green-500/15 border border-green-500/30 text-xs text-green-300 code-text">PHP</span>
+            <span class="px-3 py-1 rounded-lg bg-green-500/15 border border-green-500/30 text-xs text-green-300 code-text">MySQL</span>
+          </div>
+          <div class="flex gap-3">
+            <a href="#"
+              class="flex-1 px-4 py-2 rounded-lg border border-green-500/40 bg-green-500/10 hover:bg-green-500/20 text-green-400 text-sm font-mono transition-colors text-center">
+              → Demo
+            </a>
+            <a href="#"
+              class="flex-1 px-4 py-2 rounded-lg border border-green-500/40 bg-green-500/10 hover:bg-green-500/20 text-green-400 text-sm font-mono transition-colors text-center">
+              $ Code
+            </a>
           </div>
         </article>
 
@@ -292,40 +392,46 @@
 
   <!-- CONTACT -->
   <section id="contact" class="relative">
-    <div class="mx-auto max-w-6xl px-4 py-14">
-      <div class="rounded-3xl border border-white/10 bg-gradient-to-br from-white/8 to-white/5 p-8 backdrop-blur-xl">
-        <h2 class="text-3xl md:text-4xl font-extrabold">
-          Contact <span class="text-pink-400">Me</span>
+    <div class="mx-auto max-w-6xl px-4 py-16">
+      <div class="rounded-xl border border-cyan-500/20 bg-gradient-to-br from-cyan-500/5 to-transparent p-8 md:p-12 backdrop-blur neon-border">
+        <h2 class="text-4xl md:text-5xl font-black code-text">
+          &gt; contact<span class="text-cyan-400">()</span>
         </h2>
 
-        <div class="mt-6 grid md:grid-cols-3 gap-4 text-white/80">
-          <div class="rounded-2xl bg-black/20 border border-white/10 p-5">
-            <p class="text-xs text-white/60">Email</p>
-            <a href="mailto:kannikasaehengg@gmail.com" class="underline">kannikasaehengg@gmail.com</a>
+        <div class="mt-10 grid md:grid-cols-3 gap-6 text-white/80">
+          <div class="rounded-lg bg-cyan-500/10 border border-cyan-500/30 p-6">
+            <p class="text-xs text-cyan-400 code-text mb-2">email:</p>
+            <a href="mailto:kannikasaehengg@gmail.com" class="text-cyan-300 hover:text-cyan-200 transition-colors break-all">kannikasaehengg@gmail.com</a>
           </div>
-          <div class="rounded-2xl bg-black/20 border border-white/10 p-5">
-            <p class="text-xs text-white/60">Phone</p>
-            <p class="font-semibold">081-4802162</p>
+          <div class="rounded-lg bg-cyan-500/10 border border-cyan-500/30 p-6">
+            <p class="text-xs text-cyan-400 code-text mb-2">phone:</p>
+            <p class="text-white font-mono">081-4802162</p>
           </div>
-          <div class="rounded-2xl bg-black/20 border border-white/10 p-5">
-            <p class="text-xs text-white/60">Location</p>
-            <p class="font-semibold">Nakhon Nayok, Thailand</p>
+          <div class="rounded-lg bg-cyan-500/10 border border-cyan-500/30 p-6">
+            <p class="text-xs text-cyan-400 code-text mb-2">location:</p>
+            <p class="text-white">Nakhon Nayok, Thailand</p>
           </div>
         </div>
 
-        <div class="mt-6 flex flex-wrap gap-3">
+        <div class="mt-10 flex flex-wrap gap-3">
           <a href="https://github.com/kannikase326-pixel"
-             class="px-5 py-3 rounded-2xl border border-white/15 bg-white/5 hover:bg-white/10 font-semibold">
-            GitHub
+             class="px-6 py-3 rounded-lg border border-cyan-500/40 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 font-mono font-semibold transition-colors"
+             rel="noopener noreferrer"
+             target="_blank">
+            GitHub →
           </a>
-
+          <a href="mailto:kannikasaehengg@gmail.com"
+             class="px-6 py-3 rounded-lg border border-cyan-500/40 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 font-mono font-semibold transition-colors">
+            Send Email →
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="text-center py-8 text-white/50">
-    © 2026 Kannika Saeheng • Built with Tailwind
+  <footer class="text-center py-8 text-white/50 code-text">
+    <p>© 2026 Kannika Saeheng • Built with Tailwind CSS</p>
+    <p class="mt-2 text-xs">// Clean code. Clean design. 🚀</p>
   </footer>
 
   <!-- Script: mobile menu + active nav highlight -->
@@ -335,6 +441,7 @@
     const mobileMenu = document.getElementById("mobileMenu");
     menuBtn?.addEventListener("click", () => {
       mobileMenu.classList.toggle("hidden");
+      menuBtn.setAttribute("aria-expanded", mobileMenu.classList.contains("hidden") ? "false" : "true");
     });
 
     // active section highlight
@@ -344,9 +451,10 @@
     const setActive = (id) => {
       links.forEach(a => {
         const active = a.getAttribute("href") === "#" + id;
-        a.classList.toggle("bg-white/10", active);
-        a.classList.toggle("text-white", active);
-        a.classList.toggle("text-white/80", !active);
+        a.classList.toggle("bg-cyan-500/15", active);
+        a.classList.toggle("text-cyan-400", active);
+        a.classList.toggle("text-white/70", !active);
+        a.classList.toggle("hover:text-cyan-400", active);
       });
     };
 
