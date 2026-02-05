@@ -50,6 +50,44 @@
     .transition-neon:hover {
       box-shadow: 0 0 30px rgba(6, 182, 212, 0.6);
     }
+    .btn-project{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  width:100%;
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.06);
+  backdrop-filter:blur(10px);
+  transition:all .25s ease;
+}
+.btn-project:hover{
+  transform:translateY(-2px);
+}
+.btn-project .icon{
+  width:28px;height:28px;
+  display:grid;place-items:center;
+  border-radius:10px;
+  font-family:monospace;
+  font-size:14px;
+}
+.btn-project .label{
+  font-family:'Courier New', monospace;
+  font-size:13px;
+  letter-spacing:.05em;
+}
+
+/* theme */
+.btn-cyan:hover{border-color:#06b6d4;box-shadow:0 0 24px #06b6d433;background:#06b6d420}
+.btn-cyan .icon{background:#06b6d420;border:1px solid #06b6d455}
+
+.btn-purple:hover{border-color:#a855f7;box-shadow:0 0 24px #a855f733;background:#a855f720}
+.btn-purple .icon{background:#a855f720;border:1px solid #a855f755}
+
+.btn-green:hover{border-color:#22c55e;box-shadow:0 0 24px #22c55e33;background:#22c55e20}
+.btn-green .icon{background:#22c55e20;border:1px solid #22c55e55}
   </style>
 </head>
 
@@ -293,89 +331,100 @@
 
 
   <!-- PROJECTS -->
-  <section id="projects" class="relative">
-    <div class="mx-auto max-w-6xl px-4 py-16">
-      <h2 class="text-4xl md:text-5xl font-black code-text">
-        &gt; projects<span class="text-cyan-400">()</span>
-      </h2>
+<section id="projects" class="relative">
+  <div class="mx-auto max-w-6xl px-4 py-16">
+    <h2 class="text-4xl md:text-5xl font-black code-text">
+      &gt; projects<span class="text-cyan-400">()</span>
+    </h2>
 
-      <div class="mt-10 grid md:grid-cols-3 gap-6">
+    <div class="mt-10 grid md:grid-cols-3 gap-6">
 
-        <article class="rounded-xl border border-cyan-500/20 bg-cyan-500/5 p-7 backdrop-blur hover:border-cyan-500/50 transition-all neon-border">
-          <div class="flex items-center justify-between mb-4">
-            <h3 class="font-bold text-xl text-white code-text">MoodHaven</h3>
-            <span class="text-xs px-3 py-1 rounded-lg bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 code-text">Figma</span>
-          </div>
-          <p class="text-white/70 text-sm leading-relaxed">
-            Emotion tracking prototype with full UX workflow: concept, wireframes, interactive prototype. Designed to help users monitor mental health.
-          </p>
-          <div class="mt-5 flex flex-wrap gap-2 mb-6">
-            <span class="px-3 py-1 rounded-lg bg-cyan-500/15 border border-cyan-500/30 text-xs text-cyan-300 code-text">UX/UI</span>
-            <span class="px-3 py-1 rounded-lg bg-cyan-500/15 border border-cyan-500/30 text-xs text-cyan-300 code-text">Prototype</span>
-          </div>
-          <div class="flex gap-3">
-            <a href="#"
-              class="flex-1 px-4 py-2 rounded-lg border border-cyan-500/40 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 text-sm font-mono transition-colors text-center">
-              → Demo
-            </a>
-            <a href="#"
-              class="flex-1 px-4 py-2 rounded-lg border border-cyan-500/40 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 text-sm font-mono transition-colors text-center">
-              $ Code
-            </a>
-          </div>
-        </article>
+      <!-- MoodHaven -->
+      <article class="rounded-xl border border-cyan-500/20 bg-cyan-500/5 p-7 backdrop-blur neon-border">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="font-bold text-xl code-text">MoodHaven</h3>
+          <span class="text-xs px-3 py-1 rounded-lg bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 code-text">Figma</span>
+        </div>
 
-        <article class="rounded-xl border border-purple-500/20 bg-purple-500/5 p-7 backdrop-blur hover:border-purple-500/50 transition-all neon-border">
-          <div class="flex items-center justify-between mb-4">
-            <h3 class="font-bold text-xl text-white code-text">FirstStep</h3>
-            <span class="text-xs px-3 py-1 rounded-lg bg-purple-500/20 border border-purple-500/40 text-purple-300 code-text">Angular</span>
-          </div>
-          <p class="text-white/70 text-sm leading-relaxed">
-            Internship search web app built with Angular. Features job listing, filtering, and responsive design. Improved frontend skills + UX thinking.
-          </p>
-          <div class="mt-5 flex flex-wrap gap-2 mb-6">
-            <span class="px-3 py-1 rounded-lg bg-purple-500/15 border border-purple-500/30 text-xs text-purple-300 code-text">Frontend</span>
-            <span class="px-3 py-1 rounded-lg bg-purple-500/15 border border-purple-500/30 text-xs text-purple-300 code-text">Angular</span>
-          </div>
-          <div class="flex gap-3">
-            <a href="#"
-              class="flex-1 px-4 py-2 rounded-lg border border-purple-500/40 bg-purple-500/10 hover:bg-purple-500/20 text-purple-400 text-sm font-mono transition-colors text-center">
-              → Demo
-            </a>
-            <a href="#"
-              class="flex-1 px-4 py-2 rounded-lg border border-purple-500/40 bg-purple-500/10 hover:bg-purple-500/20 text-purple-400 text-sm font-mono transition-colors text-center">
-              $ Code
-            </a>
-          </div>
-        </article>
+        <p class="text-white/70 text-sm">
+          Emotion tracking prototype with full UX workflow: concept, wireframes, interactive prototype.
+        </p>
 
-        <article class="rounded-xl border border-green-500/20 bg-green-500/5 p-7 backdrop-blur hover:border-green-500/50 transition-all neon-border">
-          <div class="flex items-center justify-between mb-4">
-            <h3 class="font-bold text-xl text-white code-text">PoppyDay</h3>
-            <span class="text-xs px-3 py-1 rounded-lg bg-green-500/20 border border-green-500/40 text-green-300 code-text">PHP</span>
-          </div>
-          <p class="text-white/70 text-sm leading-relaxed">
-            Online clothing store with full e-commerce functionality: login, shopping cart, quantity management, checkout, and admin CRUD operations.
-          </p>
-          <div class="mt-5 flex flex-wrap gap-2 mb-6">
-            <span class="px-3 py-1 rounded-lg bg-green-500/15 border border-green-500/30 text-xs text-green-300 code-text">PHP</span>
-            <span class="px-3 py-1 rounded-lg bg-green-500/15 border border-green-500/30 text-xs text-green-300 code-text">MySQL</span>
-          </div>
-          <div class="flex gap-3">
-            <a href="#"
-              class="flex-1 px-4 py-2 rounded-lg border border-green-500/40 bg-green-500/10 hover:bg-green-500/20 text-green-400 text-sm font-mono transition-colors text-center">
-              → Demo
-            </a>
-            <a href="#"
-              class="flex-1 px-4 py-2 rounded-lg border border-green-500/40 bg-green-500/10 hover:bg-green-500/20 text-green-400 text-sm font-mono transition-colors text-center">
-              $ Code
-            </a>
-          </div>
-        </article>
+        <div class="mt-4 flex gap-2">
+          <span class="px-3 py-1 text-xs rounded-lg bg-cyan-500/15 border border-cyan-500/30 code-text">UX/UI</span>
+          <span class="px-3 py-1 text-xs rounded-lg bg-cyan-500/15 border border-cyan-500/30 code-text">Prototype</span>
+        </div>
 
-      </div>
+        <div class="mt-6">
+          <a href="https://www.figma.com/design/ROQxYMc6q8hKa0L0gvrdvB/งานที่แก้ไขแล้ว"
+             target="_blank" rel="noopener noreferrer"
+             class="btn-project btn-cyan">
+            <span class="icon">$</span>
+            <span class="label">Figma Design</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- FirstStep -->
+      <article class="rounded-xl border border-purple-500/20 bg-purple-500/5 p-7 backdrop-blur neon-border">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="font-bold text-xl code-text">FirstStep</h3>
+          <span class="text-xs px-3 py-1 rounded-lg bg-purple-500/20 border border-purple-500/40 text-purple-300 code-text">Angular</span>
+        </div>
+
+        <p class="text-white/70 text-sm">
+          Internship search web app built with Angular. Job listing, filtering, responsive design.
+        </p>
+
+        <div class="mt-4 flex gap-2">
+          <span class="px-3 py-1 text-xs rounded-lg bg-purple-500/15 border border-purple-500/30 code-text">Frontend</span>
+          <span class="px-3 py-1 text-xs rounded-lg bg-purple-500/15 border border-purple-500/30 code-text">Angular</span>
+        </div>
+
+        <div class="mt-6 grid grid-cols-3 gap-3">
+          <a href="https://kannikase326-pixel.github.io/FristStep/home" target="_blank"
+             class="btn-project btn-purple">
+            <span class="icon">→</span><span class="label">Pages</span>
+          </a>
+          <a href="https://github.com/kannikase326-pixel/FristStep" target="_blank"
+             class="btn-project btn-purple">
+            <span class="icon">$</span><span class="label">GitHub</span>
+          </a>
+          <a href="assets/video.mp4" target="_blank"
+             class="btn-project btn-purple">
+            <span class="icon">▶</span><span class="label">Demo</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- PoppyDay -->
+      <article class="rounded-xl border border-green-500/20 bg-green-500/5 p-7 backdrop-blur neon-border">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="font-bold text-xl code-text">PoppyDay</h3>
+          <span class="text-xs px-3 py-1 rounded-lg bg-green-500/20 border border-green-500/40 text-green-300 code-text">PHP</span>
+        </div>
+
+        <p class="text-white/70 text-sm">
+          Online clothing store with cart, checkout, and admin CRUD operations.
+        </p>
+
+        <div class="mt-4 flex gap-2">
+          <span class="px-3 py-1 text-xs rounded-lg bg-green-500/15 border border-green-500/30 code-text">PHP</span>
+          <span class="px-3 py-1 text-xs rounded-lg bg-green-500/15 border border-green-500/30 code-text">MySQL</span>
+        </div>
+
+        <div class="mt-6 grid grid-cols-2 gap-3">
+          <a href="assets/video2.mp4" class="btn-project btn-green"><span class="icon">▶</span><span class="label">Demo</span></a>
+          <a href="assets/admin1.mp4" class="btn-project btn-green"><span class="icon">▶</span><span class="label">Admin1</span></a>
+          <a href="assets/admin2.mp4" class="btn-project btn-green"><span class="icon">▶</span><span class="label">Admin2</span></a>
+          <a href="assets/Data.mp4"   class="btn-project btn-green"><span class="icon">▶</span><span class="label">Data</span></a>
+        </div>
+      </article>
+
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- CONTACT -->
   <section id="contact" class="relative">
